@@ -1,0 +1,11 @@
+<!--main.wxml-->
+<view class="container">
+  <block class='scroll-container' wx:for="{{imgs}}" wx:key="{{url}}">
+    <view id="{{item.url}}" bindtap="toDownload">
+      <image src=" https://cn.bing.com{{item.url}} ">
+      </image>
+    </view>
+    <view class='img-description'>{{item.copyright}}
+    </view>
+  </block>
+</view>

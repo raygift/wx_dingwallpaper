@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/main/main",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/event/download"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#47b5c7",
+    "navigationBarTitleText": "BingWallpaper",
+    "navigationBarTextStyle": "white"
+  }
+}

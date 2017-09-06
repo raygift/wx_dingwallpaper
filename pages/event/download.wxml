@@ -1,0 +1,5 @@
+<!--pages/event/download.wxml-->
+<view class='container'>
+  <image src=" https://cn.bing.com{{imgUrl}} "></image>
+  <button type="primary" class="basic-btn" bindtap='startDownload'>保存图片</button>
+</view>
