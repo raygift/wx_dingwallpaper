@@ -1,1 +1,7 @@
 /* pages/event/download.wxss */
+.img-description {
+  align-items: center;
+  color: black;
+  font-size: 14pt;
+  padding:5rpx 50rpx 50rpx;
+}

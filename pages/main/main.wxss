@@ -9,6 +9,6 @@
 .img-description {
   align-items: center;
   color: black;
-  font-size: 10px;
+  font-size: 11pt;
   padding:5rpx 50rpx 50rpx;
 }
