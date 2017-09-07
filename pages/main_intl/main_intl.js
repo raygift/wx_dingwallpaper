@@ -1,4 +1,4 @@
-// main.js
+// pages/main_intl/main_intl.js
 Page({
 
   /**
@@ -10,7 +10,7 @@ Page({
   toDownload: function (event) {
     // console.log(event.currentTarget.id)
     wx.navigateTo({
-      url: '../event/download?id=' + event.currentTarget.id +"&intlF=0",
+      url: '../event/download?id=' + event.currentTarget.id+'&intlF=1',
     })
   },
   /**
@@ -23,7 +23,10 @@ Page({
       data: {
         format: 'js',
         idx: '0',
-        n: '8'
+        n: '8',
+        nc:"",
+        pid:"hp",
+        intlF:"1"
       },
       // header: {
       //   'content-type': 'application/json'
@@ -35,7 +38,6 @@ Page({
         // console.log(that.data.imgs[1]["hsh"])
       }
     })
-    
   },
 
   /**

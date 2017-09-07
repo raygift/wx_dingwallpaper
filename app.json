@@ -3,12 +3,32 @@
     "pages/main/main",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/event/download"
+    "pages/event/download",
+    "pages/main_intl/main_intl"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#47b5c7",
     "navigationBarTitleText": "BingWallpaper",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "pages/source/china.png",
+        "iconPath": "pages/source/china_unseleted.png",
+        "pagePath": "pages/main/main",
+        "text": "国内版"
+      },
+      {
+        "iconPath": "pages/source/global_unseleted.png",
+        "selectedIconPath": "pages/source/global.png",
+        "pagePath": "pages/main_intl/main_intl",
+        "text": "国际版"
+      }
+    ]
   }
 }

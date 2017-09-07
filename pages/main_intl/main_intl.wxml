@@ -1,4 +1,4 @@
-<!--main.wxml-->
+<!--pages/main_intl/main_intl.wxml-->
 <view class="container">
   <block class='scroll-container' wx:for="{{imgs}}" wx:key="{{index}}">
     <view id="{{index}}" bindtap="toDownload">
@@ -9,3 +9,4 @@
     </view>
   </block>
 </view>
+

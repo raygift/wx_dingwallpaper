@@ -1,13 +1,13 @@
 <!--pages/event/download.wxml-->
 <view class='container'>
-  <image src=" https://cn.bing.com{{imgUrl}} "></image>
+  <image src="https://cn.bing.com{{imgUrl}}"></image>
 </view>
 <view class='container'>
   <text class='img-description'>{{imgs.copyright}}</text>
 </view>
-<view class='container'>
-  <button type="primary" class="basic-btn" bindtap='Download'>保存原图</button>
-</view>
+ <view class='container'>
+  <button type="primary" class="basic-btn" bindtap='Download'>保存壁纸原图</button>
+</view> 
 <view class="container">
-<button type="primary" class="basic-btn" bindtap='Downloadlogo' disabled='{{!imgs.wp}}' >保存壁纸</button>
+<button type="primary" class="basic-btn" bindtap='DownloadPhoneSize'>保存手机壁纸</button>
 </view>
