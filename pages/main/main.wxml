@@ -2,7 +2,7 @@
 <view class="container">
   <block class='scroll-container' wx:for="{{imgs}}" wx:key="{{index}}">
     <view id="{{index}}" bindtap="toDownload">
-      <image src=" https://cn.bing.com{{item.url}} ">
+      <image style='width:{{phoneW}}px;height:{{phoneH}}px;margin:10rpx 0 0 0' src=" https://cn.bing.com{{item.url}}" mode='widthFix'>
       </image>
     </view>
     <view class='img-description'>{{item.copyright}}

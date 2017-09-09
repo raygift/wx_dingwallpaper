@@ -7,10 +7,11 @@
     "pages/main_intl/main_intl"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dart",
     "navigationBarBackgroundColor": "#47b5c7",
     "navigationBarTitleText": "BingWallpaper",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "backgroundColor":"#000000"
   },
   "tabBar": {
     "color": "#a9b7b7",

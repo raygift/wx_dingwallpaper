@@ -1,14 +1,3 @@
 /* main.wxss */
 
-.scroll-container {
-  /* display: flex;  *//* flex-direction: column;  *//* align-items: center; *//* justify-content: space-between; */
-  padding: 5rpx 0;
-  /* box-sizing: border-box; */
-}
 
-.img-description {
-  align-items: center;
-  color: black;
-  font-size: 11pt;
-  padding:5rpx 50rpx 50rpx;
-}

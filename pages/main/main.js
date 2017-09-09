@@ -18,6 +18,15 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          intl: options.intlF,
+          phoneH: res.windowHeight * 0.5,
+          phoneW: res.windowWidth * 0.98
+        })
+      }
+    })
     wx.request({
       url: 'https://cn.bing.com/HPImageArchive.aspx', //仅为示例，并非真实的接口地址
       data: {

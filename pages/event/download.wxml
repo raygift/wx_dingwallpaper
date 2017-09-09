@@ -1,13 +1,14 @@
 <!--pages/event/download.wxml-->
-<view class='container'>
-  <image src="https://cn.bing.com{{imgUrl}}"></image>
-</view>
-<view class='container'>
+<scroll-view style='width:{{phoneW}}px;height:{{phoneH}};margin:10rpx 10rpx 0 10rpx;' scroll-x="true" scroll-left="357">
+
+  <image style="width:{{imgW}}px;height:{{imgH}}px;" src="https://cn.bing.com{{imgUrl}}" mode='aspectFill'></image>
+
+</scroll-view>
+<!-- <view class='container'>
   <text class='img-description'>{{imgs.copyright}}</text>
-</view>
- <view class='container'>
-  <button type="primary" class="basic-btn" bindtap='Download'>保存壁纸原图</button>
-</view> 
-<view class="container">
-<button type="primary" class="basic-btn" bindtap='DownloadPhoneSize'>保存手机壁纸</button>
+</view> -->
+ <view class='container' style='height:{{btnH}}px;margin:0 0 5rpt 0'>
+  <button size="mini" loading="{{loading}}" disabled='{{disabled}}' plain="true" type="default" class="basic-btn" bindtap='Download'>保存壁纸原图</button>
+
+<button size="mini" loading="{{loading}}" type="default"  disabled='{{disabled}}' plain="true"  class="basic-btn" bindtap='DownloadPhoneSize'>保存手机壁纸</button>
 </view>

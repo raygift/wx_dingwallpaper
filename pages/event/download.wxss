@@ -5,3 +5,8 @@
   font-size: 14pt;
   padding:5rpx 50rpx 50rpx;
 }
+.img-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -8,10 +8,27 @@ Page({
     imgUrl: [],
     imgs: [],
     intl: [],
-    imgBaseUrl: []
+    imgBaseUrl: [],
+    phoneH: [],
+    phoneW: [],
+    imgH: [],
+    imgW: [],
+    loading: false,
+    btnH: [],
+    disabled:false
+  },
+  setLoading: function (e) {
+    this.setData({
+      loading: !this.data.loading,
+      disabled: !this.data.disabled
+    })
   },
   // 原图下载
   Download: function (event) {
+    this.setData({
+      loading: !this.data.loading,
+      disabled: !this.data.disabled
+    })
     if (this.data.imgUrl == null) {
       wx.showToast({
         title: '未能加载图片',
@@ -20,28 +37,34 @@ Page({
       })
     }
     else {
+      var that=this;
       wx.downloadFile({
         url: "https://cn.bing.com" + this.data.imgBaseUrl + "_1920x1080.jpg",
         success: function (res) {
           wx.saveImageToPhotosAlbum({
             filePath: res.tempFilePath,
             success(msg) {
+              var the=that
               wx.showModal({
                 title: '提示',
                 showCancel: false,
                 content: '壁纸保存成功！',
                 success: function (res) {
-                  if (res.confirm) {
-                    // console.log('用户点击确定')
-                  }
+                  the.setData({
+                    loading: !the.data.loading,
+                    disabled: !the.data.disabled
+                  })
                 }
               })
             },
             fail(err) {
               console.log(err)
             },
-            complete(msg) {
-              console.log(msg)
+            complete: function (res) {
+              that.setData({
+                loading: !that.data.loading,
+                disabled: !that.data.disabled
+              })
             }
           })
         }
@@ -50,6 +73,10 @@ Page({
   },
   // 适应手机尺寸壁纸下载
   DownloadPhoneSize: function (event) {
+    this.setData({
+      loading: !this.data.loading,
+      disabled: !this.data.disabled
+    })
     if (this.data.imgUrl == null) {
       wx.showToast({
         title: '未能加载图片',
@@ -58,10 +85,12 @@ Page({
       })
     }
     else {
-      var phoneSize = "_768x1280.jpg"
+      var that=this
+      var phoneSize = "_1080x1920.jpg"
       wx.downloadFile({
         url: "https://cn.bing.com" + this.data.imgBaseUrl + phoneSize,
         success: function (res) {
+          var the=that
           wx.saveImageToPhotosAlbum({
             filePath: res.tempFilePath,
             success(msg) {
@@ -70,17 +99,21 @@ Page({
                 showCancel: false,
                 content: '壁纸保存成功！',
                 success: function (res) {
-                  if (res.confirm) {
-                    // console.log('用户点击确定')
-                  }
+                  the.setData({
+                    loading: !the.data.loading,
+                    disabled: !the.data.disabled
+                  })
                 }
               })
             },
             fail(err) {
               console.log(err)
             },
-            complete(msg) {
-              console.log(msg)
+            complete: function (res) {
+              that.setData({
+                loading: !that.data.loading,
+                disabled: !that.data.disabled
+              })
             }
           })
         }
@@ -133,10 +166,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      intl: options.intlF
-    })
     var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          intl: options.intlF,
+          phoneH: res.windowHeight * 0.75,
+          phoneW: res.windowWidth * 0.98,
+          imgH: res.windowHeight * 0.80,
+          imgW: res.windowHeight * 0.75 * 1920 / 1080,
+          btnH: res.windowHeight * 0.2
+        })
+      }
+    })
 
     wx.request({
       url: 'https://cn.bing.com/HPImageArchive.aspx', //仅为示例，并非真实的接口地址
