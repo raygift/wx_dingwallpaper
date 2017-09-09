@@ -8,7 +8,7 @@
   <text class='img-description'>{{imgs.copyright}}</text>
 </view> -->
  <view class='container' style='height:{{btnH}}px;margin:0 0 5rpt 0'>
-  <button size="mini" loading="{{loading}}" disabled='{{disabled}}' plain="true" type="default" class="basic-btn" bindtap='Download'>保存壁纸原图</button>
+  <button size="mini" loading="{{saveOriginalLoading}}" disabled='{{disabled}}' plain="true" type="default" class="basic-btn" bindtap='Download'>保存壁纸原图</button>
 
-<button size="mini" loading="{{loading}}" type="default"  disabled='{{disabled}}' plain="true"  class="basic-btn" bindtap='DownloadPhoneSize'>保存手机壁纸</button>
+<button size="mini" loading="{{savePhonesizeLoading}}" type="default"  disabled='{{disabled}}' plain="true"  class="basic-btn" bindtap='DownloadPhoneSize'>保存手机壁纸</button>
 </view>

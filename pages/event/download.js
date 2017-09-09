@@ -13,20 +13,18 @@ Page({
     phoneW: [],
     imgH: [],
     imgW: [],
-    loading: false,
+    saveOriginalLoading: false,
+    savePhonesizeLoading: false,  
+    disabled:false,  
     btnH: [],
-    disabled:false
+    // saveOriginalDisabled: false,
+    // savePhonesizeDisabled:false,
   },
-  setLoading: function (e) {
-    this.setData({
-      loading: !this.data.loading,
-      disabled: !this.data.disabled
-    })
-  },
+
   // 原图下载
   Download: function (event) {
     this.setData({
-      loading: !this.data.loading,
+      saveOriginalLoading: !this.data.saveOriginalLoading,
       disabled: !this.data.disabled
     })
     if (this.data.imgUrl == null) {
@@ -44,17 +42,18 @@ Page({
           wx.saveImageToPhotosAlbum({
             filePath: res.tempFilePath,
             success(msg) {
-              var the=that
-              wx.showModal({
-                title: '提示',
-                showCancel: false,
-                content: '壁纸保存成功！',
-                success: function (res) {
-                  the.setData({
-                    loading: !the.data.loading,
-                    disabled: !the.data.disabled
-                  })
-                }
+              // wx.showModal({
+              //   title: '提示',
+              //   showCancel: false,
+              //   content: '壁纸保存成功！',
+              //   success: function (res) {
+
+              //   }
+              // })
+              wx.showToast({
+                title: '保存成功',
+                icon: 'success',
+                duration: 1500
               })
             },
             fail(err) {
@@ -62,7 +61,7 @@ Page({
             },
             complete: function (res) {
               that.setData({
-                loading: !that.data.loading,
+                saveOriginalLoading: !that.data.saveOriginalLoading,
                 disabled: !that.data.disabled
               })
             }
@@ -74,7 +73,7 @@ Page({
   // 适应手机尺寸壁纸下载
   DownloadPhoneSize: function (event) {
     this.setData({
-      loading: !this.data.loading,
+      savePhonesizeLoading: !this.data.savePhonesizeLoading,
       disabled: !this.data.disabled
     })
     if (this.data.imgUrl == null) {
@@ -90,20 +89,22 @@ Page({
       wx.downloadFile({
         url: "https://cn.bing.com" + this.data.imgBaseUrl + phoneSize,
         success: function (res) {
-          var the=that
+
           wx.saveImageToPhotosAlbum({
             filePath: res.tempFilePath,
             success(msg) {
-              wx.showModal({
-                title: '提示',
-                showCancel: false,
-                content: '壁纸保存成功！',
-                success: function (res) {
-                  the.setData({
-                    loading: !the.data.loading,
-                    disabled: !the.data.disabled
-                  })
-                }
+              // wx.showModal({
+              //   title: '提示',
+              //   showCancel: false,
+              //   content: '壁纸保存成功！',
+              //   success: function (res) {
+
+              //   }
+              // })
+              wx.showToast({
+                title: '保存成功',
+                icon: 'success',
+                duration: 1500
               })
             },
             fail(err) {
@@ -111,7 +112,7 @@ Page({
             },
             complete: function (res) {
               that.setData({
-                loading: !that.data.loading,
+                savePhonesizeLoading: !that.data.savePhonesizeLoading,
                 disabled: !that.data.disabled
               })
             }
@@ -140,14 +141,19 @@ Page({
           wx.saveImageToPhotosAlbum({
             filePath: res.tempFilePath,
             success(msg) {
-              wx.showModal({
-                title: '提示',
-                showCancel: false,
-                content: '壁纸保存成功！',
-                success: function (res) {
-                  if (res.confirm) {
-                  }
-                }
+              // wx.showModal({
+              //   title: '提示',
+              //   showCancel: false,
+              //   content: '壁纸保存成功！',
+              //   success: function (res) {
+              //     if (res.confirm) {
+              //     }
+              //   }
+              // })
+              wx.showToast({
+                title: '成功',
+                icon: 'success',
+                duration: 1500
               })
             },
             fail(err) {
