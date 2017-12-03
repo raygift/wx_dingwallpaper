@@ -1,5 +1,5 @@
 <!--pages/event/download.wxml-->
-<scroll-view style='width:{{phoneW}}px;height:{{phoneH}};margin:10rpx 10rpx 0 10rpx;' scroll-x="true" scroll-left="357">
+<scroll-view style='width:{{phoneW}}px;height:{{phoneH}};margin:0 0 0 0' scroll-x="true">
 
   <image style="width:{{imgW}}px;height:{{imgH}}px;" src="https://cn.bing.com{{imgUrl}}" mode='aspectFill'></image>
 
@@ -7,8 +7,19 @@
 <!-- <view class='container'>
   <text class='img-description'>{{imgs.copyright}}</text>
 </view> -->
- <view class='container' style='height:{{btnH}}px;margin:0 0 5rpt 0'>
-  <button size="mini" loading="{{saveOriginalLoading}}" disabled='{{disabled}}' plain="true" type="default" class="basic-btn" bindtap='Download'>保存壁纸原图</button>
-
-<button size="mini" loading="{{savePhonesizeLoading}}" type="default"  disabled='{{disabled}}' plain="true"  class="basic-btn" bindtap='DownloadPhoneSize'>保存手机壁纸</button>
+<view style="position:fixed; bottom:120px; z-index:999;width:{{phoneW}}px;  align-items: center;  flex-direction: row;  display: flex;">
+  <view>
+    <button id='download' loading="{{saveOriginalLoading}}" disabled='{{disabled}}' class='iconfont icon-download' style='position:fixed; right:130px;' bindtap='Download'> </button>
+  </view>
+  <view>
+    <button id='downloadPhoneSize' loading="{{saveOriginalLoading}}" disabled='{{disabled}}' class='iconfont icon-phonedownload' style='position:fixed;right:75px' bindtap='DownloadPhoneSize'> </button>
+  </view>
+  <view>
+    <button open-type="share" class='iconfont icon-share' style='position:fixed; right:20px'></button>
+  </view>
 </view>
+<!-- <view style="position:fixed; bottom:10px; z-index:999;width:{{phoneW}}px;  align-items: center;  flex-direction: column;  display: flex;">
+
+  <button id='download'  class='iconfont icon-computer' style=' background-color:white;opacity:.7 ' size="mini" loading="{{saveOriginalLoading}}" disabled='{{disabled}}' plain="false" type="default" class="basic-btn" bindtap='Download'>保存壁纸原图</button>
+  <button id='downloadPhoneSize' style=' background-color:white;opacity:.7 ' size="mini" loading="{{savePhonesizeLoading}}" type="default" disabled='{{disabled}}' plain="false" class="basic-btn" bindtap='DownloadPhoneSize'>保存手机壁纸</button>
+</view> -->

@@ -1,11 +1,21 @@
 <!--main.wxml-->
 <view class="container">
+  <!-- <view style="flex-direction: column;display:flex;align-items: center;opacity: .7;top:0; z-index:999;background-color:lightgrey;width:100%;height:20px;">
+ <lable style="font-size:small">图片来自Microsoft，点击图片下载</lable>
+</view>  -->
+  <view>
+  </view>
   <block class='scroll-container' wx:for="{{imgs}}" wx:key="{{index}}">
     <view id="{{index}}" bindtap="toDownload">
-      <image style='width:{{phoneW}}px;height:{{phoneH}}px;margin:10rpx 0 0 0' src=" https://cn.bing.com{{item.url}}" mode='widthFix'>
+      <video class="eventFlag" wx:if="{{item.vid&&isWifi}}" autoplay='true' loop='true' muted='true' controls='false' objectFit='fill' style='width:{{phoneW}}px;height:{{phoneH}}px;margin:10rpx 0 0 0' src="https:{{item.vid.sources[0][2]}}"></video>
+      <image class="eventFlag" wx:else style='width:{{phoneW}}px;height:{{phoneH}}px;margin:10rpx 0 0 0' src=" https://cn.bing.com{{item.url}}" mode='widthFix'>
       </image>
     </view>
+
     <view class='img-description'>{{item.copyright}}
     </view>
   </block>
+
 </view>
+<!-- <view style="flex-direction: column;display: flex;align-items: center;opacity: .7;position:fixed; top:0; z-index:999;background-color:lightgrey;width:100%;height:20px;"><lable style="font-size:small">图片来自Microsoft，点击图片下载</lable>
+</view>  -->

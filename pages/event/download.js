@@ -175,13 +175,18 @@ Page({
     var that = this;
     wx.getSystemInfo({
       success: function (res) {
+        // console.log(res.windowHeight)
         that.setData({
           intl: options.intlF,
-          phoneH: res.windowHeight * 0.75,
-          phoneW: res.windowWidth * 0.98,
-          imgH: res.windowHeight * 0.80,
+          phoneH: res.windowHeight ,//* 0.9942,
+          // phoneH: res.windowHeight * 0.75,
+          phoneW: res.windowWidth * 1,
+          // phoneW: res.windowWidth * 0.98,
+          imgH: res.windowHeight,// * 0.9942,
+          // imgH: res.windowHeight * 0.80,
           imgW: res.windowHeight * 0.75 * 1920 / 1080,
-          btnH: res.windowHeight * 0.2
+          // imgW: res.windowHeight * 1 * 1920 / 1080,
+          btnH: res.windowHeight * 0.18
         })
       }
     })
@@ -202,7 +207,7 @@ Page({
           imgUrl: res.data["images"][0]["url"],
           imgBaseUrl: res.data["images"][0]["urlbase"]
         })
-        // console.log(that.data.imgs)
+        // console.log(that.data.imgBaseUrl)
       }
     })
   },

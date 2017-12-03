@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgs: []
+    imgs: [],
+    isWifi:false
   },
   toDownload: function (event) {
     // console.log(event.currentTarget.id)
@@ -24,7 +25,21 @@ Page({
           intl: options.intlF,
           phoneH: res.windowHeight * 0.5,
           phoneW: res.windowWidth * 0.98
+
         })
+
+      }
+    })
+    wx.getNetworkType({
+      success: function (res) {
+        // 返回网络类型, 有效值：
+        // wifi/2g/3g/4g/unknown(Android下不常见的网络类型)/none(无网络)
+        if(res.networkType==='wifi'){
+          that.setData({
+            isWifi:true
+          })
+        }
+
       }
     })
     wx.request({
@@ -32,7 +47,8 @@ Page({
       data: {
         format: 'js',
         idx: '0',
-        n: '8'
+        n: '8',
+        video:'1'
       },
       // header: {
       //   'content-type': 'application/json'
@@ -41,7 +57,6 @@ Page({
         that.setData({
           imgs: res.data["images"]
         })
-        // console.log(that.data.imgs[1]["hsh"])
       }
     })
     
