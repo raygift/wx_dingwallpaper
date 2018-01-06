@@ -1,5 +1,6 @@
 # wx_dingwallpaper
-微信小程序
+微信小程序（ Bing每日壁纸）
+![](pages/source/t_d_code.JPG)
 
 version:
 
